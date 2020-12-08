@@ -5,9 +5,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ 1.16 ]
+    branches: [ ImlazyandIdontwanttocompile ]
   pull_request:
-    branches: [ 1.16 ]
+    branches: [ ImlazyandIdontwanttocompile ]
 
 jobs:
   build:
@@ -24,3 +24,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: tiered-lazy-artifacts
+        path: build/libs
